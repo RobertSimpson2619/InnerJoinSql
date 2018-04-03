@@ -1,0 +1,50 @@
+use sys;
+
+
+
+CREATE TABLE Customers 
+(
+ID int NOT NULL,
+
+FirstName varchar(255),
+
+PRIMARY KEY (ID)
+
+);
+
+
+
+CREATE TABLE Customer_Addresses 
+(
+
+ID int NOT NULL,
+
+Customer_ID int NOT NULL,
+
+Street_Adress varchar(255),
+
+Postal_Code varchar(255),
+
+Country varchar(255),
+
+PRIMARY KEY (ID),
+
+FOREIGN KEY (Customer_ID) REFERENCES Customers(ID)
+
+
+
+
+);
+
+
+
+
+
+
+SELECT FirstName
+
+FROM Customers
+
+INNER JOIN Customer_Addresses 
+ON Customers.ID 
+= Customer_Addresses.Customer_ID;
